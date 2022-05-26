@@ -14,7 +14,22 @@ def create_table_news():
                     title TEXT NOT NULL,
                     content TEXT NOT NULL,
                     datetime TEXT NOT NULL,
-                    flag TEXT NOT NULL)"""
+                    flag INTEGER NOT NULL)"""
+        ]
+    
+    db = get_db()
+    cursor = db.cursor()
+    
+    for table in tables:
+        cursor.execute(table)
+
+def create_table_users():
+    tables = [
+            """CREATE TABLE IF NOT EXISTS
+                tbl_users(
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    username TEXT NOT NULL,
+                    password TEXT NOT NULL)"""
         ]
     
     db = get_db()

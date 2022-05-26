@@ -1,7 +1,7 @@
 from http.client import BAD_REQUEST, FORBIDDEN, INTERNAL_SERVER_ERROR, METHOD_NOT_ALLOWED, UNAUTHORIZED
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from db import create_table_news, get_db
+from db import create_table_news, create_table_users, get_db
 import news_model
 import users_models
 from flask_httpauth import HTTPBasicAuth
@@ -638,5 +638,5 @@ def unauthorized(error=UNAUTHORIZED):
 
 if __name__ == "__main__":
     create_table_news()
-    #print(get_data())
+    create_table_users()
     app.run(debug=True)
